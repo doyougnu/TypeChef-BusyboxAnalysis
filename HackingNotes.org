@@ -1,7 +1,15 @@
-* How to run
+* How I got this to run
   I've had to nuke the shebang lines for jcpp script and the analyze script. The
   bash test in analyzeBusyBox.sh expects all the *.dbg files to be absent. So
   the correct way to run is:
   #+begin_src
   ./prepareBusybox.sh && ./analyzeBusybox.sh
   #+end_src
+
+  Then I had to change this line:
+  #+begin_src
+  # partialPreprocFlags="-c $system.properties $partialPreprocFlags"
+  #+end_src
+
+  in the main run script ~jcpp.conf~ to point to ~redhat.properties~ instead of
+  system.properties which defaulted to ~ubuntu~
