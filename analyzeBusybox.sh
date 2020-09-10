@@ -1,5 +1,6 @@
-#!/bin/bash -e
-#!/bin/bash -vxe
+#!/usr/bin/env bash
+
+# -vxe
 
 filesToProcess() {
   local listFile=busybox/busybox_files
@@ -25,4 +26,3 @@ filesToProcess|while read i; do
     echo "Skipping $srcPath/$i.c"
   fi
 done
-

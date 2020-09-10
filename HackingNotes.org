@@ -1,0 +1,7 @@
+* How to run
+  I've had to nuke the shebang lines for jcpp script and the analyze script. The
+  bash test in analyzeBusyBox.sh expects all the *.dbg files to be absent. So
+  the correct way to run is:
+  #+begin_src
+  ./prepareBusybox.sh && ./analyzeBusybox.sh
+  #+end_src
