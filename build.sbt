@@ -1,8 +1,8 @@
 name := "TypeChef Busybox Analysis"
 
-version := "0.4.2"
+version := "0.3.8"
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.11.4"
 
 organization := "de.fosd.typechef"
 
@@ -11,7 +11,7 @@ libraryDependencies += "com.github.scopt" %% "scopt" % "3.5.0"
 
 libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.4"
 
-libraryDependencies += "de.fosd.typechef" %% "frontend" % "0.4.2"
+libraryDependencies += "de.fosd.typechef" %% "frontend" % "0.4.1"
 
 TaskKey[File]("mkrun") <<= (baseDirectory, fullClasspath in Runtime, mainClass in Runtime) map { (base, cp, main) =>
   val template = """#!/bin/sh
