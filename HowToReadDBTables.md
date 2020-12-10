@@ -35,10 +35,10 @@ The current hypothesis is that this might happen because TypeChef may lose its c
 _sentToSAT_ is true iff the formula was delegated to a sat solver by TypeChef.
 Thus, _sentToSAT_ is false iff the formula was easy enough to be solved by TypeChef directly.
 
-So for a row _(formula, fm, mode, tc, db, sat)_ in `QUERIES` we know
-- that _formula_ was checked for satisfiability in conjunction with _fm_ under _mode_.
-- that _formula and fm_ was sent to the sat solver iff _sat_.
-- that if _sat_ is true, then _formula_ was asked for satisfiability with _fm_ in _mode_ exactly _1 + tc + db_ times .
+So for a row _(formula, fm, mode, tc, db, sat)_ in `QUERIES` we know that
+- _formula_ was checked for satisfiability in conjunction with _fm_ under _mode_.
+- _formula and fm_ was sent to the sat solver iff _sat_.
+- if _sat_ is true, then _formula_ was asked for satisfiability with _fm_ in _mode_ exactly _1 + tc + db_ times .
   Once because the row exists.
   Once for every cache hit in TypeChef _tc_.
   Once for every cache miss in TypeChef when the formula was already in `QUERIES` _db_ (w.r.t. to primary keys).
