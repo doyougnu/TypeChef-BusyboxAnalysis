@@ -35,6 +35,26 @@ The current hypothesis is that this might happen because TypeChef may lose its c
 _sentToSAT_ is true iff the formula was delegated to a sat solver by TypeChef.
 Thus, _sentToSAT_ is false iff the formula was easy enough to be solved by TypeChef directly.
 
+So for a row _(formula, fm, mode, tc, db, sat)_ in `QUERIES` we know
+- that _formula_ was checked for satisfiability in conjunction with _fm_ under _mode_.
+- that _formula and fm_ was sent to the sat solver iff _sat_.
+- that if _sat_ is true, then _formula_ was asked for satisfiability with _fm_ in _mode_ exactly _1 + tc + db_ times .
+  Once because the row exists.
+  Once for every cache hit in TypeChef _tc_.
+  Once for every cache miss in TypeChef when the formula was already in `QUERIES` _db_ (w.r.t. to primary keys).
+
+To get the total number of times _SAT(p and fm)_ was called for a formula _p_ and feature model _fm_ (disregarding the mode), do the following (This should probably be done in a single `SELECT` query):
+- Delete all rows where `sentToSAT == false` because these rows were not sent to the SAT solver.
+- Delete column _mode_.
+  This will result in duplicate entries as _mode_ was part of the primary key.
+  The new primary key will be  _(formula, fmhash)_.
+- Merge each duplicate rows (w.r.t. the new primary key) by summing their _tcCacheHit_ and _dbCacheHit_ properties.
+  _sentToSAT_ will be equal automatically because there are only rows with `sentToSAT == true` at this step.
+- Now, for each row we know that
+  - _formula_ was asked for satisfiability with _fm_ exactly _1 + tc + db_ times across modes.
+  - TypeChef had _tc_ cache hits on that formula across all modes.
+
+
 ## FEATUREMODELS
 
 The `FEATUREMODELS` table is created in the following way:
