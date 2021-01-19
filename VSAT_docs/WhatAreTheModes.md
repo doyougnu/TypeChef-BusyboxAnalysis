@@ -31,8 +31,8 @@ The paper [_A Variability-Aware Module System_](http://www.cs.cmu.edu/~ckaestne/
 - (tcsw) [WriteInterfaces](https://github.com/doyougnu/TypeChef/blob/3e67d9355dba59b23431a99bfc53d5042e6bd454/Frontend/src/main/scala/de/fosd/typechef/Frontend.scala#L399):
 Seems to be writing that which was computed during mode Interfaces to file.
 - (tcsw) [CallGraph](https://github.com/doyougnu/TypeChef/blob/3e67d9355dba59b23431a99bfc53d5042e6bd454/Frontend/src/main/scala/de/fosd/typechef/Frontend.scala#L407):
-There was a paper for this but on Web applications: https://www.cs.cmu.edu/~ckaestne/pdf/fse14.pdf.
-I don't know if this is supported for C/C++ code.
+There was a paper [_Building Call Graphs for Embedded Client-Side Codein Dynamic Web Applications_](https://www.cs.cmu.edu/~ckaestne/pdf/fse14.pdf).
+I don't know if this paper introduces the concepts that are used for C/C++ code, too.
 - (tcsw) [StaticAnalysis](https://github.com/doyougnu/TypeChef/blob/3e67d9355dba59b23431a99bfc53d5042e6bd454/Frontend/src/main/scala/de/fosd/typechef/Frontend.scala#L421):
 self explanatory.
 Could be subdivided into different independent static analysis.
