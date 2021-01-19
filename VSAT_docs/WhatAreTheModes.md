@@ -26,9 +26,9 @@ There are a few lines of code for configuring the creation of `CTypeSystemFronte
 - (sw) [TypeChecking](https://github.com/doyougnu/TypeChef/blob/3e67d9355dba59b23431a99bfc53d5042e6bd454/Frontend/src/main/scala/de/fosd/typechef/Frontend.scala#L387):
 self explanatory
 - (sw) [Interfaces](https://github.com/doyougnu/TypeChef/blob/3e67d9355dba59b23431a99bfc53d5042e6bd454/Frontend/src/main/scala/de/fosd/typechef/Frontend.scala#L395):
-?
+The paper [_A Variability-Aware Module System_](http://www.cs.cmu.edu/~ckaestne/pdf/oopsla12.pdf) talks about interfaces but I don't know yet if this is what this mode is about.
 - (sw) [WriteInterfaces](https://github.com/doyougnu/TypeChef/blob/3e67d9355dba59b23431a99bfc53d5042e6bd454/Frontend/src/main/scala/de/fosd/typechef/Frontend.scala#L399):
-?
+Seems to be writing that which was computed during mode Interfaces to file.
 - (sw) [CallGraph](https://github.com/doyougnu/TypeChef/blob/3e67d9355dba59b23431a99bfc53d5042e6bd454/Frontend/src/main/scala/de/fosd/typechef/Frontend.scala#L407):
 There was a paper for this but on Web applications: https://www.cs.cmu.edu/~ckaestne/pdf/fse14.pdf.
 I don't know if this is supported for C/C++ code.
